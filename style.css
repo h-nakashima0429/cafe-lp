@@ -147,12 +147,16 @@ h1 {
 }
 
 .headline-pc,
-.headline-sp {
+.headline-sp,
+.heading-pc,
+.heading-sp,
+.heading-line {
   display: block;
   white-space: nowrap;
 }
 
-.headline-sp {
+.headline-sp,
+.heading-sp {
   display: none;
 }
 
@@ -523,11 +527,18 @@ h3 {
     line-height: 1.26;
   }
 
-  .headline-pc {
+  h2 {
+    font-size: clamp(1.7rem, 7.6vw, 2.35rem);
+    line-height: 1.36;
+  }
+
+  .headline-pc,
+  .heading-pc {
     display: none;
   }
 
-  .headline-sp {
+  .headline-sp,
+  .heading-sp {
     display: block;
     letter-spacing: 0;
   }
