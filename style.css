@@ -146,6 +146,15 @@ h1 {
   font-size: clamp(2.7rem, 7vw, 5.7rem);
 }
 
+.headline-pc,
+.headline-sp {
+  display: block;
+}
+
+.headline-sp {
+  display: none;
+}
+
 h2 {
   font-size: clamp(2rem, 4vw, 3.15rem);
 }
@@ -509,7 +518,16 @@ h3 {
   }
 
   h1 {
-    font-size: 2.55rem;
+    font-size: clamp(2.65rem, 14vw, 4.25rem);
+    line-height: 1.22;
+  }
+
+  .headline-pc {
+    display: none;
+  }
+
+  .headline-sp {
+    display: block;
   }
 
   .hero-actions {
