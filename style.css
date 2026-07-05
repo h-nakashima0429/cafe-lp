@@ -146,17 +146,14 @@ h1 {
   font-size: clamp(2.7rem, 7vw, 5.7rem);
 }
 
-.headline-pc,
-.headline-sp,
-.heading-pc,
-.heading-sp,
+.break-pc,
+.break-sp,
 .heading-line {
   display: block;
   white-space: nowrap;
 }
 
-.headline-sp,
-.heading-sp {
+.break-sp {
   display: none;
 }
 
@@ -532,13 +529,11 @@ h3 {
     line-height: 1.36;
   }
 
-  .headline-pc,
-  .heading-pc {
+  .break-pc {
     display: none;
   }
 
-  .headline-sp,
-  .heading-sp {
+  .break-sp {
     display: block;
     letter-spacing: 0;
   }
