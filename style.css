@@ -228,6 +228,15 @@ h3 {
   background: linear-gradient(180deg, var(--white), var(--cream));
 }
 
+.about .two-column {
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
+  gap: clamp(64px, 8vw, 96px);
+}
+
+.about .section-copy {
+  max-width: 520px;
+}
+
 .about-image img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
@@ -492,6 +501,14 @@ h3 {
   .menu-grid,
   .voice-grid {
     grid-template-columns: 1fr;
+  }
+
+  .about .two-column {
+    gap: 38px;
+  }
+
+  .about .section-copy {
+    max-width: none;
   }
 
   .card-body p {
