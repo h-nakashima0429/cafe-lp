@@ -229,12 +229,26 @@ h3 {
 }
 
 .about .two-column {
-  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1.15fr);
-  gap: clamp(64px, 8vw, 96px);
+  grid-template-columns: minmax(360px, 480px) minmax(420px, 1fr);
+  column-gap: clamp(96px, 10vw, 136px);
 }
 
 .about .section-copy {
-  max-width: 520px;
+  width: 100%;
+  max-width: 480px;
+  min-width: 0;
+}
+
+.about .section-copy p:not(.eyebrow) {
+  word-break: normal;
+  overflow-wrap: normal;
+  writing-mode: horizontal-tb;
+}
+
+.about-image {
+  justify-self: end;
+  width: 100%;
+  min-width: 0;
 }
 
 .about-image img {
@@ -504,11 +518,29 @@ h3 {
   }
 
   .about .two-column {
+    grid-template-columns: minmax(0, 1fr);
     gap: 38px;
+    width: 100%;
   }
 
   .about .section-copy {
+    width: 100%;
     max-width: none;
+    min-width: 0;
+  }
+
+  .about .section-copy p:not(.eyebrow) {
+    width: 100%;
+    max-width: none;
+    word-break: normal;
+    overflow-wrap: normal;
+    writing-mode: horizontal-tb;
+  }
+
+  .about-image {
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
   }
 
   .card-body p {
