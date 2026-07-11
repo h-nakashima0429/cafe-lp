@@ -1,3 +1,4 @@
+/* カラートークン：LP全体の配色を一元管理し、上質で自然なトーンを保つ */
 :root {
   --white: #fffdf8;
   --cream: #f5efe4;
@@ -9,6 +10,7 @@
   --shadow: 0 24px 70px rgba(46, 41, 36, 0.14);
 }
 
+/* リセット：要素ごとの初期差分を抑え、余白やサイズ計算を安定させる */
 * {
   box-sizing: border-box;
 }
@@ -36,7 +38,7 @@ a {
   text-decoration: none;
 }
 
-/* Header */
+/* ヘッダー：ファーストビュー上では白文字、スクロール後は読みやすい背景付きに切り替える */
 .site-header {
   position: fixed;
   top: 0;
@@ -96,13 +98,29 @@ a {
 }
 
 .header-button {
+  min-height: 44px;
   padding: 9px 18px;
   font-size: 0.82rem;
   border: 1px solid currentColor;
   border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
 
-/* Hero */
+.header-button:hover {
+  color: var(--deep);
+  background: var(--white);
+  transform: translateY(-2px);
+}
+
+.site-header.is-scrolled .header-button:hover {
+  color: var(--white);
+  background: var(--brown);
+}
+
+/* ヒーロー：大きな背景写真と暗めのオーバーレイで、文字の可読性と高級感を両立する */
 .hero {
   position: relative;
   min-height: 92vh;
@@ -146,6 +164,7 @@ h1 {
   font-size: clamp(2.7rem, 7vw, 5.7rem);
 }
 
+/* 見出し改行：PC/SPで自然な改行位置を固定し、短い語句だけが孤立しないようにする */
 .break-pc,
 .break-sp,
 .heading-line {
@@ -178,6 +197,7 @@ h3 {
   gap: 20px;
 }
 
+/* ボタン：主要CTAとして視認性を高め、ホバーで押せる要素だと分かるようにする */
 .primary-button {
   display: inline-flex;
   align-items: center;
@@ -186,6 +206,8 @@ h3 {
   padding: 12px 24px;
   color: var(--white);
   font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
   background: var(--brown);
   border-radius: 999px;
   box-shadow: 0 16px 34px rgba(95, 70, 54, 0.22);
@@ -197,7 +219,32 @@ h3 {
   transform: translateY(-2px);
 }
 
-/* Shared sections */
+.reservation-button {
+  background: #6b563f;
+}
+
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 11px 22px;
+  color: var(--white);
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+  border: 1px solid rgba(255, 253, 248, 0.72);
+  border-radius: 999px;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.secondary-button:hover {
+  background: rgba(255, 253, 248, 0.14);
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* 共通セクション：各ブロックの余白と最大幅を統一し、LP全体のリズムを揃える */
 .section {
   padding: clamp(72px, 10vw, 130px) clamp(20px, 5vw, 72px);
 }
@@ -224,6 +271,7 @@ h3 {
   margin-bottom: 34px;
 }
 
+/* About：本文と写真の距離を専用調整し、PCでもスマホでも読みやすい余白を確保する */
 .about {
   background: linear-gradient(180deg, var(--white), var(--cream));
 }
@@ -258,7 +306,7 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-/* Menu cards */
+/* Menu：3枚のカードで人気メニューを比較しやすく見せ、写真で食欲を喚起する */
 .menu {
   background: var(--cream);
 }
@@ -306,7 +354,7 @@ h3 {
   font-size: 1.15rem;
 }
 
-/* Gallery */
+/* Gallery：写真の大小に変化をつけ、店内の空気感を単調にならずに伝える */
 .gallery {
   background: var(--white);
 }
@@ -332,7 +380,7 @@ h3 {
   grid-column: span 2;
 }
 
-/* Testimonials */
+/* Voice：暗い背景でセクションを切り替え、お客様の声を落ち着いた印象で読ませる */
 .testimonials {
   color: var(--white);
   background: var(--deep);
@@ -361,7 +409,7 @@ h3 {
   font-size: 0.88rem;
 }
 
-/* Access */
+/* Access：住所や営業時間を整理し、地図風のビジュアルで店舗位置の情報を補助する */
 .access {
   background: var(--white);
 }
@@ -442,7 +490,7 @@ h3 {
   box-shadow: 0 14px 28px rgba(95, 70, 54, 0.26);
 }
 
-/* Contact */
+/* Contact：背景写真つきの帯で、最後の問い合わせ導線を強く印象づける */
 .contact-band {
   padding: clamp(70px, 10vw, 115px) 20px;
   color: var(--white);
@@ -465,6 +513,28 @@ h3 {
   margin-bottom: 28px;
 }
 
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contact-actions .primary-button,
+.contact-actions .secondary-button {
+  min-width: 180px;
+}
+
+.light-button {
+  color: var(--white);
+  background: rgba(255, 253, 248, 0.08);
+  border-color: rgba(255, 253, 248, 0.58);
+}
+
+.light-button:hover {
+  background: rgba(255, 253, 248, 0.18);
+}
+
 .footer {
   padding: 26px 20px;
   color: #7b6b5d;
@@ -472,12 +542,54 @@ h3 {
   background: var(--cream);
 }
 
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  color: var(--brown);
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.footer-links a::after {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 100%;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: var(--sage);
+  transform: translateY(-1px);
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
 .footer p {
   margin: 0;
   font-size: 0.86rem;
 }
 
-/* Scroll animation */
+/* スクロールアニメーション：表示領域に入った要素を自然にフェードインさせる */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -489,6 +601,7 @@ h3 {
   transform: translateY(0);
 }
 
+/* アクセシビリティ：動きを減らす設定のユーザーにはアニメーションを抑制する */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -497,11 +610,15 @@ h3 {
   .reveal,
   .site-header,
   .menu-card,
-  .primary-button {
+  .primary-button,
+  .secondary-button,
+  .header-button,
+  .footer-links a {
     transition: none;
   }
 }
 
+/* タブレット用レイアウト：横幅が狭くなるため、複数カラムを1カラム中心に切り替える */
 @media (max-width: 900px) {
   .site-header {
     padding: 14px 20px;
@@ -558,6 +675,7 @@ h3 {
   }
 }
 
+/* スマホ用レイアウト：390px前後の画面で見出し・ボタン・画像が窮屈にならないよう調整する */
 @media (max-width: 560px) {
   .header-button {
     display: none;
@@ -590,10 +708,40 @@ h3 {
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
+    gap: 12px;
   }
 
-  .primary-button {
+  .primary-button,
+  .secondary-button {
     width: 100%;
+  }
+
+  .contact-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .contact-actions .primary-button,
+  .contact-actions .secondary-button {
+    min-width: 0;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 12px;
+    max-width: 330px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .footer-links a {
+    justify-content: center;
+  }
+
+  .footer-links a:last-child {
+    grid-column: 1 / -1;
   }
 
   .gallery-grid {
